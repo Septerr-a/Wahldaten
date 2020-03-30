@@ -20,7 +20,7 @@ data_json = {'copyright': "(c) Der Bundeswahlleiter, Statistische Ämter des Bun
 # iterate over it to get plz mapping
 for index,row in data.iterrows():
     if not math.isnan(row[15]):
-        data_json['data'][str(int(row[15]))] = {"wahlkreis_nummer": str(row[0]), "wahlkreis_bezeichnung": str(row[1]), "bundesland": str(row[7]), "kreis": str(row[9]), "gemeinde": str(row[10])}
+        data_json['data'][str(int(row[15]))] = {"wahlkreis_nummer": str(row[0]), "wahlkreis_bezeichnung": str(row[1]), "bundesland": str(row[7]), "kreis": str(row[9]), "gemeinde": str(row[11])}
     
 with open('wahlkreise_btw_plz.json', 'w',encoding="utf-8") as fp:
     json.dump(data_json, fp,ensure_ascii=False)
@@ -31,7 +31,7 @@ data_json = {'copyright': "(c) Der Bundeswahlleiter, Statistische Ämter des Bun
 # iterate over it to get gemeinde mapping
 for index,row in data.iterrows():
     if not math.isnan(row[15]):
-        data_json['data'][str(row[10])] = {"wahlkreis_nummer": str(row[0]), "wahlkreis_bezeichnung": str(row[1]), "bundesland": str(row[7]), "kreis": str(row[9]), "plz": str(int(row[15]))}
+        data_json['data'][str(row[11])] = {"wahlkreis_nummer": str(row[0]), "wahlkreis_bezeichnung": str(row[1]), "bundesland": str(row[7]), "kreis": str(row[9]), "plz": str(int(row[15]))}
     
 with open('wahlkreise_btw_gemeinde.json', 'w',encoding="utf-8") as fp:
     json.dump(data_json, fp,ensure_ascii=False)
