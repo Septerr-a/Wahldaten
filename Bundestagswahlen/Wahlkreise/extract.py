@@ -6,7 +6,7 @@ import math
 import json
 
 # you might want to switch to the directory this file is located in manually
-os.chdir("D:/github_repos/Wahldaten/Bundestagswahlen/Wahlkreise")
+os.chdir("YOURPATH/Wahldaten/Bundestagswahlen/Wahlkreise")
 
 # thirst rows to ignore (start with 1, include header)
 rows_empty = 8
