@@ -5,7 +5,7 @@ Diese Sammlung beinhaltet Daten aus offiziellen Quellen zu Wahlen in Deutschland
 ## Aufbau
 * GitHub repo
   * Bundestagswahlen
-    * Wahlkreise _Aufbereitete Daten und Skripte zum Aufbereiten der Daten
+    * Wahlkreise _Aufbereitete Daten und Skripte zum Aufbereiten der Daten_
       * src _Quelldateien_ 
   * Baden-Württemberg
     * Landtagswahlen
