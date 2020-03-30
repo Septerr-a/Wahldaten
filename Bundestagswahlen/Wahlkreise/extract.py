@@ -36,3 +36,31 @@ for index,row in data.iterrows():
 with open('wahlkreise_btw_gemeinde.json', 'w',encoding="utf-8") as fp:
     json.dump(data_json, fp,ensure_ascii=False)
 
+# make dicts
+data_json = {'copyright': "(c) Der Bundeswahlleiter, Statistische Ämter des Bundes und der Länder, Wiesbaden 2017. Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet.", "status": "28.02.2017", "data": {}}
+
+# iterate over it to get wahlkreis mapping
+for index,row in data.iterrows():
+    if not math.isnan(row[15]):
+        if str(row[1]) in data_json['data']:
+            data_json['data'][str(row[1])]['plz'].append(str(int(row[15])))
+        else:
+            data_json['data'][str(row[1])] = {"wahlkreis_nummer": str(row[0]), "bundesland": str(row[7]), "plz": [str(int(row[15]))]}
+    
+with open('wahlkreise_btw_wahlkreis.json', 'w',encoding="utf-8") as fp:
+    json.dump(data_json, fp,ensure_ascii=False)
+
+# make dicts
+data_json = {'copyright': "(c) Der Bundeswahlleiter, Statistische Ämter des Bundes und der Länder, Wiesbaden 2017. Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet.", "status": "28.02.2017", "data": {}}
+
+# iterate over it to get wahlkreisnummer mapping
+for index,row in data.iterrows():
+    if not math.isnan(row[15]):
+        if str(row[1]) in data_json['data']:
+            data_json['data'][str(row[0])]['plz'].append(str(int(row[15])))
+        else:
+            data_json['data'][str(row[0])] = {"wahlkreis_bezeichnung": str(row[1]), "bundesland": str(row[7]), "plz": [str(int(row[15]))]}
+    
+with open('wahlkreise_btw_wahlkreisnummer.json', 'w',encoding="utf-8") as fp:
+    json.dump(data_json, fp,ensure_ascii=False)
+
